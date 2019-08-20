@@ -3,7 +3,34 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+function findRemander(i) {
+  return function (v) {
+    return i * v;
+  };
+}
+var divide = findRemander(50);
+console.log(divide(11));
 
+
+function bankAccount() {
+  return {
+    balance: 0,
+    deposit: function (funds) {
+      this.balance += funds;
+
+      return this.balance;
+    },
+    withdraw: function (funds) {
+      if (this.balance >= funds) {
+        this.balance -= funds;
+
+        return this.balance;
+      }
+
+      throw new Error("Insufficient funds!")
+    }
+  }
+}
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
