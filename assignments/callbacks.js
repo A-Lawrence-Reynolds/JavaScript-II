@@ -51,23 +51,38 @@ function last(arr, cb) {
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return x + y;
+  cb(x + y)
 }
-console.log(sumNums(2, 8));
+
+sumNums(5, 8, (sum) => {
+  console.log(sum);
+})
+
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return x * y;
+  cb(x * y);
 
 }
-console.log(multiplyNums(5, 5));
+multiplyNums(5, 5, (multiply) => {
+  console.log(multiply)
+});
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  contains = items.includes("yo-yo");
+  let itIncludes = list.includes(item);
+
+  cb(itIncludes);
+
 }
-console.log(contains());
+
+
+contains("yo-yo", items, (value) => {
+  console.log(value)
+});
+
+
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
